@@ -1,0 +1,26 @@
+program MonitoringRVSM;
+
+uses
+  Forms,
+  MonitoringRVSM_main_unit in 'MonitoringRVSM_main_unit.pas' {Form_Main},
+  DB_unit in 'DB_unit.pas' {DBForm},
+  DBTargets_unit in 'DBTargets_unit.pas' {Form_DBTargets},
+  DBTargets_Append_and_Edit_unit in 'DBTargets_Append_and_Edit_unit.pas' {Form_DBTargetsAppendAndEdit},
+  DBConnect_unit in 'DBConnect_unit.pas' {Form_DBConnect},
+  LoadFromFile_unit in 'LoadFromFile_unit.pas' {Form_LoadFromFile},
+  DataBase_unit in 'DataBase_unit.pas' {Form_DataBase},
+  DBSessions_unit in 'DBSessions_unit.pas' {Form_DBSessions},
+  Consts in 'Consts.pas',
+  ValueWeightGraph_unit in 'ValueWeightGraph_unit.pas' {Form_ValueWeightGraph},
+  ParamLoadFromFile_unit in 'ParamLoadFromFile_unit.pas' {Form_ParamLoadFromFile},
+  ParamDataBase_unit in 'ParamDataBase_unit.pas' {Form_ParamDataBase};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Title := 'Мониторинг RVSM';
+  Application.CreateForm(TForm_Main, Form_Main);
+  Application.CreateForm(TDBForm, DBForm);
+  Application.Run;
+end.

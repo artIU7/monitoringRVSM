@@ -1,0 +1,416 @@
+unit DB_unit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, FIBDatabase, pFIBDatabase, FIBQuery, pFIBQuery, DB, FIBDataSet,
+  pFIBDataSet, DBTables;
+
+type
+  TDBForm = class(TForm)
+    MonitoringDB: TpFIBDatabase;
+    Targets: TpFIBDataSet;
+    Targets_DS: TDataSource;
+    Read_Transaction: TpFIBTransaction;
+    Write_Transaction: TpFIBTransaction;
+    Sessions: TpFIBDataSet;
+    Sessions_DS: TDataSource;
+    TargsInSes: TpFIBDataSet;
+    TargsInSes_DS: TDataSource;
+    DeleteTargsInSes: TpFIBQuery;
+    Targets_Query: TpFIBDataSet;
+    Targets_Query_DS: TDataSource;
+    TargsInd: TpFIBDataSet;
+    TargsInd_DS: TDataSource;
+    Statistics: TpFIBDataSet;
+    Statistics_DS: TDataSource;
+    DeleteStatistics: TpFIBQuery;
+    Isobara: TpFIBDataSet;
+    Isobara_DS: TDataSource;
+    DeleteIsobara: TpFIBQuery;
+    MoninoringSB: TpFIBDatabase;
+    Targets1: TpFIBDataSet;
+    Targets1_DS: TDataSource;
+    Read_Transaction1: TpFIBTransaction;
+    Write_Transaction1: TpFIBTransaction;
+    Sessions1: TpFIBDataSet;
+    Sesions1_DS: TDataSource;
+    TargsInSes1: TpFIBDataSet;
+    TargInSes1_DS: TDataSource;
+    DeleteTargsInSes1: TpFIBQuery;
+    Targets1_Query: TpFIBDataSet;
+    Targets1_Query_DS: TDataSource;
+    TargsInd1: TpFIBDataSet;
+    TargsInd1_DS: TDataSource;
+    Statistics1: TpFIBDataSet;
+    Statistics1_DS: TDataSource;
+    DeleteStatistics1: TpFIBQuery;
+    Isobara1: TpFIBDataSet;
+    Isobara1_DS: TDataSource;
+    DeleteIsobara1: TpFIBQuery;
+    TargetsID_TARGET: TFIBIntegerField;
+    TargetsIDENTIFIKATOR: TFIBStringField;
+    TargetsSHIROTA_STR: TFIBStringField;
+    TargetsSHIROTA_DEC: TFIBFloatField;
+    TargetsDOLGOTA_STR: TFIBStringField;
+    TargetsDOLGOTA_DEC: TFIBFloatField;
+    TargetsBAROMETR_VISOTA: TFIBFloatField;
+    TargetsGEOMETR_VISOTA: TFIBFloatField;
+    TargetsVREMYA_ZAPISI: TFIBDateTimeField;
+    TargetsRAZNOST_BG_VISOT: TFIBFloatField;
+    TargetsREYS: TFIBStringField;
+    TargetsTIP_BORTA: TFIBStringField;
+    TargetsDOSTOVERNOST: TFIBIntegerField;
+    TargetsRASSTOYNIE: TFIBFloatField;
+    Targets_QueryID_TARGET: TFIBIntegerField;
+    Targets_QueryIDENTIFIKATOR: TFIBStringField;
+    Targets_QuerySHIROTA_STR: TFIBStringField;
+    Targets_QuerySHIROTA_DEC: TFIBFloatField;
+    Targets_QueryDOLGOTA_STR: TFIBStringField;
+    Targets_QueryDOLGOTA_DEC: TFIBFloatField;
+    Targets_QueryBAROMETR_VISOTA: TFIBFloatField;
+    Targets_QueryGEOMETR_VISOTA: TFIBFloatField;
+    Targets_QueryVREMYA_ZAPISI: TFIBDateTimeField;
+    Targets_QueryRAZNOST_BG_VISOT: TFIBFloatField;
+    Targets_QueryREYS: TFIBStringField;
+    Targets_QueryTIP_BORTA: TFIBStringField;
+    Targets_QueryDOSTOVERNOST: TFIBIntegerField;
+    Targets_QueryRASSTOYNIE: TFIBFloatField;
+    SessionsID_SESSIONS: TFIBIntegerField;
+    SessionsVREMYA_SEANSA: TFIBDateTimeField;
+    SessionsVREMYA_INTERVALA: TFIBDateTimeField;
+    SessionsINKREMENT_INTERVALA: TFIBIntegerField;
+    SessionsKOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    SessionsSRZN_SRRAZNOSTI: TFIBFloatField;
+    SessionsOBSCHEE_KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    SessionsDOLYA_SAMOLETOV_MONITORING: TFIBFloatField;
+    SessionsZNACHENIE_S: TFIBFloatField;
+    SessionsNEW_S: TFIBFloatField;
+    SessionsKOL_FILTR: TFIBIntegerField;
+    SessionsSRZNPOGRESHNOSTEY: TFIBFloatField;
+    SessionsKOL_NAC8: TFIBIntegerField;
+    SessionsKOL_NAC9: TFIBIntegerField;
+    SessionsKOL_NAC10: TFIBIntegerField;
+    SessionsDOLY_NAC10: TFIBFloatField;
+    SessionsFLAG_FILTR_SEANS: TFIBStringField;
+    SessionsPROCENT_OTBRAKOVKI: TFIBFloatField;
+    SessionsEHELON: TFIBIntegerField;
+    SessionsSIGMA_APR: TFIBFloatField;
+    TargsInSesID_TARGINSES: TFIBIntegerField;
+    TargsInSesSESSIONS_ID: TFIBIntegerField;
+    TargsInSesIDENTIFIKATOR: TFIBStringField;
+    TargsInSesSRRAZNOST: TFIBFloatField;
+    TargsInSesOCENKA_POGRESHNOSTEY: TFIBFloatField;
+    TargsInSesOCENKA_S_VESOM: TFIBFloatField;
+    TargsInSesKOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    TargsInSesOCENKA_NAKLONA_ISOBARA: TFIBFloatField;
+    TargsInSesFLAG_FILTR: TFIBStringField;
+    TargsInSesNEW_OCENKA_POGRESHNOSTEY: TFIBFloatField;
+    TargsInSesNEW_OCENKA_S_VESOM: TFIBFloatField;
+    IsobaraID_ISOBARA: TFIBIntegerField;
+    IsobaraSESSION_ID: TFIBIntegerField;
+    IsobaraIDENTIFIKATOR: TFIBStringField;
+    IsobaraRAZNOST_BG_VISOT: TFIBFloatField;
+    IsobaraDIAPAZON_VISOTI: TFIBIntegerField;
+    IsobaraRASSTOYANIE: TFIBFloatField;
+    TargsIndID_TARGSIND: TFIBIntegerField;
+    TargsIndIDENTIFIKATOR: TFIBStringField;
+    TargsIndSRZNOC: TFIBFloatField;
+    TargsIndKOL_SIGMA: TFIBIntegerField;
+    TargsIndKOL_SEANS: TFIBSmallIntField;
+    TargsIndKOL_S: TFIBIntegerField;
+    TargsIndRAZN_VISOT: TFIBFloatField;
+    TargsIndMIN_H: TFIBFloatField;
+    TargsIndMAX_H: TFIBFloatField;
+    TargsIndPROC_OTBR: TFIBFloatField;
+    TargsIndRAZNOST_L_H: TFIBFloatField;
+    StatisticsID_STATISTICS: TFIBIntegerField;
+    StatisticsTARGSIND_ID: TFIBIntegerField;
+    StatisticsVREMYA_SOZDANIYA: TFIBDateTimeField;
+    StatisticsOCENKA_S_VESOM: TFIBFloatField;
+    StatisticsKOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    StatisticsOCENKA_NAKLONA_ISOBARA: TFIBIntegerField;
+    StatisticsREYS: TFIBStringField;
+    StatisticsNEW_OCENKA_S_VESOM: TFIBFloatField;
+    StatisticsSRZNOC: TFIBFloatField;
+    StatisticsFL_SEANS: TFIBStringField;
+    StatisticsFL_SIGMA: TFIBStringField;
+    StatisticsBEG_EH: TFIBIntegerField;
+    StatisticsEND_EH: TFIBIntegerField;
+    Targets1ID_TARGET: TFIBIntegerField;
+    Targets1IDENTIFIKATOR: TFIBStringField;
+    Targets1SHIROTA_STR: TFIBStringField;
+    Targets1SHIROTA_DEC: TFIBFloatField;
+    Targets1DOLGOTA_STR: TFIBStringField;
+    Targets1DOLGOTA_DEC: TFIBFloatField;
+    Targets1BAROMETR_VISOTA: TFIBFloatField;
+    Targets1GEOMETR_VISOTA: TFIBFloatField;
+    Targets1VREMYA_ZAPISI: TFIBDateTimeField;
+    Targets1RAZNOST_BG_VISOT: TFIBFloatField;
+    Targets1REYS: TFIBStringField;
+    Targets1TIP_BORTA: TFIBStringField;
+    Targets1DOSTOVERNOST: TFIBIntegerField;
+    Targets1RASSTOYNIE: TFIBFloatField;
+    Targets1_QueryID_TARGET: TFIBIntegerField;
+    Targets1_QueryIDENTIFIKATOR: TFIBStringField;
+    Targets1_QuerySHIROTA_STR: TFIBStringField;
+    Targets1_QuerySHIROTA_DEC: TFIBFloatField;
+    Targets1_QueryDOLGOTA_STR: TFIBStringField;
+    Targets1_QueryDOLGOTA_DEC: TFIBFloatField;
+    Targets1_QueryBAROMETR_VISOTA: TFIBFloatField;
+    Targets1_QueryGEOMETR_VISOTA: TFIBFloatField;
+    Targets1_QueryVREMYA_ZAPISI: TFIBDateTimeField;
+    Targets1_QueryRAZNOST_BG_VISOT: TFIBFloatField;
+    Targets1_QueryREYS: TFIBStringField;
+    Targets1_QueryTIP_BORTA: TFIBStringField;
+    Targets1_QueryDOSTOVERNOST: TFIBIntegerField;
+    Targets1_QueryRASSTOYNIE: TFIBFloatField;
+    Sessions1ID_SESSIONS: TFIBIntegerField;
+    Sessions1VREMYA_SEANSA: TFIBDateTimeField;
+    Sessions1VREMYA_INTERVALA: TFIBDateTimeField;
+    Sessions1INKREMENT_INTERVALA: TFIBIntegerField;
+    Sessions1KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    Sessions1SRZN_SRRAZNOSTI: TFIBFloatField;
+    Sessions1OBSCHEE_KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    Sessions1DOLYA_SAMOLETOV_MONITORING: TFIBFloatField;
+    Sessions1ZNACHENIE_S: TFIBFloatField;
+    Sessions1NEW_S: TFIBFloatField;
+    Sessions1KOL_FILTR: TFIBIntegerField;
+    Sessions1SRZNPOGRESHNOSTEY: TFIBFloatField;
+    Sessions1KOL_NAC8: TFIBIntegerField;
+    Sessions1KOL_NAC9: TFIBIntegerField;
+    Sessions1KOL_NAC10: TFIBIntegerField;
+    Sessions1DOLY_NAC10: TFIBFloatField;
+    Sessions1FLAG_FILTR_SEANS: TFIBStringField;
+    Sessions1PROCENT_OTBRAKOVKI: TFIBFloatField;
+    Sessions1EHELON: TFIBIntegerField;
+    Sessions1SIGMA_APR: TFIBFloatField;
+    TargsInSes1ID_TARGINSES: TFIBIntegerField;
+    TargsInSes1SESSIONS_ID: TFIBIntegerField;
+    TargsInSes1IDENTIFIKATOR: TFIBStringField;
+    TargsInSes1SRRAZNOST: TFIBFloatField;
+    TargsInSes1OCENKA_POGRESHNOSTEY: TFIBFloatField;
+    TargsInSes1OCENKA_S_VESOM: TFIBFloatField;
+    TargsInSes1KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    TargsInSes1OCENKA_NAKLONA_ISOBARA: TFIBFloatField;
+    TargsInSes1FLAG_FILTR: TFIBStringField;
+    TargsInSes1NEW_OCENKA_POGRESHNOSTEY: TFIBFloatField;
+    TargsInSes1NEW_OCENKA_S_VESOM: TFIBFloatField;
+    Isobara1ID_ISOBARA: TFIBIntegerField;
+    Isobara1SESSION_ID: TFIBIntegerField;
+    Isobara1IDENTIFIKATOR: TFIBStringField;
+    Isobara1RAZNOST_BG_VISOT: TFIBFloatField;
+    Isobara1DIAPAZON_VISOTI: TFIBIntegerField;
+    Isobara1RASSTOYANIE: TFIBFloatField;
+    TargsInd1ID_TARGSIND: TFIBIntegerField;
+    TargsInd1IDENTIFIKATOR: TFIBStringField;
+    TargsInd1SRZNOC: TFIBFloatField;
+    TargsInd1KOL_SIGMA: TFIBIntegerField;
+    TargsInd1KOL_SEANS: TFIBSmallIntField;
+    TargsInd1KOL_S: TFIBIntegerField;
+    TargsInd1RAZN_VISOT: TFIBFloatField;
+    TargsInd1MIN_H: TFIBFloatField;
+    TargsInd1MAX_H: TFIBFloatField;
+    TargsInd1PROC_OTBR: TFIBFloatField;
+    TargsInd1RAZNOST_L_H: TFIBFloatField;
+    Statistics1ID_STATISTICS: TFIBIntegerField;
+    Statistics1TARGSIND_ID: TFIBIntegerField;
+    Statistics1VREMYA_SOZDANIYA: TFIBDateTimeField;
+    Statistics1OCENKA_S_VESOM: TFIBFloatField;
+    Statistics1KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    Statistics1OCENKA_NAKLONA_ISOBARA: TFIBIntegerField;
+    Statistics1REYS: TFIBStringField;
+    Statistics1NEW_OCENKA_S_VESOM: TFIBFloatField;
+    Statistics1SRZNOC: TFIBFloatField;
+    Statistics1FL_SEANS: TFIBStringField;
+    Statistics1FL_SIGMA: TFIBStringField;
+    Statistics1BEG_EH: TFIBIntegerField;
+    Statistics1END_EH: TFIBIntegerField;
+    Targets2: TpFIBDataSet;
+    Targets2_DS: TDataSource;
+    Read_Transaction2: TpFIBTransaction;
+    Write_Transaction2: TpFIBTransaction;
+    Sessions2: TpFIBDataSet;
+    Sesions2_DS: TDataSource;
+    TargsInSes2: TpFIBDataSet;
+    FIBIntegerField12: TFIBIntegerField;
+    FIBIntegerField13: TFIBIntegerField;
+    FIBStringField7: TFIBStringField;
+    FIBFloatField15: TFIBFloatField;
+    FIBFloatField16: TFIBFloatField;
+    FIBFloatField17: TFIBFloatField;
+    FIBIntegerField14: TFIBIntegerField;
+    FIBFloatField18: TFIBFloatField;
+    FIBStringField8: TFIBStringField;
+    FIBFloatField19: TFIBFloatField;
+    FIBFloatField20: TFIBFloatField;
+    TargsInSes2_DS: TDataSource;
+    DeleteTargsInSes2: TpFIBQuery;
+    Targets2_Query: TpFIBDataSet;
+    Targets2_Query_DS: TDataSource;
+    TargsInd2: TpFIBDataSet;
+    TargsInd2_DS: TDataSource;
+    Statistics2: TpFIBDataSet;
+    Statistics2_DS: TDataSource;
+    DeleteStatistics2: TpFIBQuery;
+    Isobara2: TpFIBDataSet;
+    Isobara2_DS: TDataSource;
+    DeleteIsobara2: TpFIBQuery;
+    MonitoringTD: TpFIBDatabase;
+    Targets2ID_TARGET: TFIBIntegerField;
+    Targets2IDENTIFIKATOR: TFIBStringField;
+    Targets2SHIROTA_STR: TFIBStringField;
+    Targets2SHIROTA_DEC: TFIBFloatField;
+    Targets2DOLGOTA_STR: TFIBStringField;
+    Targets2DOLGOTA_DEC: TFIBFloatField;
+    Targets2BAROMETR_VISOTA: TFIBFloatField;
+    Targets2GEOMETR_VISOTA: TFIBFloatField;
+    Targets2VREMYA_ZAPISI: TFIBDateTimeField;
+    Targets2RAZNOST_BG_VISOT: TFIBFloatField;
+    Targets2REYS: TFIBStringField;
+    Targets2TIP_BORTA: TFIBStringField;
+    Targets2DOSTOVERNOST: TFIBIntegerField;
+    Targets2RASSTOYNIE: TFIBFloatField;
+    Targets2_QueryID_TARGET: TFIBIntegerField;
+    Targets2_QueryIDENTIFIKATOR: TFIBStringField;
+    Targets2_QuerySHIROTA_STR: TFIBStringField;
+    Targets2_QuerySHIROTA_DEC: TFIBFloatField;
+    Targets2_QueryDOLGOTA_STR: TFIBStringField;
+    Targets2_QueryDOLGOTA_DEC: TFIBFloatField;
+    Targets2_QueryBAROMETR_VISOTA: TFIBFloatField;
+    Targets2_QueryGEOMETR_VISOTA: TFIBFloatField;
+    Targets2_QueryVREMYA_ZAPISI: TFIBDateTimeField;
+    Targets2_QueryRAZNOST_BG_VISOT: TFIBFloatField;
+    Targets2_QueryREYS: TFIBStringField;
+    Targets2_QueryTIP_BORTA: TFIBStringField;
+    Targets2_QueryDOSTOVERNOST: TFIBIntegerField;
+    Targets2_QueryRASSTOYNIE: TFIBFloatField;
+    Sessions2ID_SESSIONS: TFIBIntegerField;
+    Sessions2VREMYA_SEANSA: TFIBDateTimeField;
+    Sessions2VREMYA_INTERVALA: TFIBDateTimeField;
+    Sessions2INKREMENT_INTERVALA: TFIBIntegerField;
+    Sessions2KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    Sessions2SRZN_SRRAZNOSTI: TFIBFloatField;
+    Sessions2OBSCHEE_KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    Sessions2DOLYA_SAMOLETOV_MONITORING: TFIBFloatField;
+    Sessions2ZNACHENIE_S: TFIBFloatField;
+    Sessions2NEW_S: TFIBFloatField;
+    Sessions2KOL_FILTR: TFIBIntegerField;
+    Sessions2SRZNPOGRESHNOSTEY: TFIBFloatField;
+    Sessions2KOL_NAC8: TFIBIntegerField;
+    Sessions2KOL_NAC9: TFIBIntegerField;
+    Sessions2KOL_NAC10: TFIBIntegerField;
+    Sessions2DOLY_NAC10: TFIBFloatField;
+    Sessions2FLAG_FILTR_SEANS: TFIBStringField;
+    Sessions2PROCENT_OTBRAKOVKI: TFIBFloatField;
+    Sessions2EHELON: TFIBIntegerField;
+    Sessions2SIGMA_APR: TFIBFloatField;
+    Statistics2ID_STATISTICS: TFIBIntegerField;
+    Statistics2TARGSIND_ID: TFIBIntegerField;
+    Statistics2VREMYA_SOZDANIYA: TFIBDateTimeField;
+    Statistics2OCENKA_S_VESOM: TFIBFloatField;
+    Statistics2KOLICHESTVO_SAMOLETOV: TFIBIntegerField;
+    Statistics2OCENKA_NAKLONA_ISOBARA: TFIBIntegerField;
+    Statistics2REYS: TFIBStringField;
+    Statistics2NEW_OCENKA_S_VESOM: TFIBFloatField;
+    Statistics2SRZNOC: TFIBFloatField;
+    Statistics2FL_SEANS: TFIBStringField;
+    Statistics2FL_SIGMA: TFIBStringField;
+    Statistics2BEG_EH: TFIBIntegerField;
+    Statistics2END_EH: TFIBIntegerField;
+    TargsInd2ID_TARGSIND: TFIBIntegerField;
+    TargsInd2IDENTIFIKATOR: TFIBStringField;
+    TargsInd2SRZNOC: TFIBFloatField;
+    TargsInd2KOL_SIGMA: TFIBIntegerField;
+    TargsInd2KOL_SEANS: TFIBSmallIntField;
+    TargsInd2KOL_S: TFIBIntegerField;
+    TargsInd2RAZN_VISOT: TFIBFloatField;
+    TargsInd2MIN_H: TFIBFloatField;
+    TargsInd2MAX_H: TFIBFloatField;
+    TargsInd2PROC_OTBR: TFIBFloatField;
+    TargsInd2RAZNOST_L_H: TFIBFloatField;
+    pFIBDataSet1: TpFIBDataSet;
+    Analys1_DS: TDataSource;
+    procedure TargsInSes_DSDataChange(Sender: TObject; Field: TField);
+    procedure Sessions_DSDataChange(Sender: TObject; Field: TField);
+    procedure TargsInd_DSDataChange(Sender: TObject; Field: TField);
+    procedure Targets_DSDataChange(Sender: TObject; Field: TField);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DBForm: TDBForm;
+
+implementation
+
+uses MonitoringRVSM_main_unit,
+     DBTargets_unit,
+     ValueWeightGraph_unit;
+
+{$R *.dfm}
+
+procedure TDBForm.Sessions_DSDataChange(Sender: TObject; Field: TField);
+begin
+  if (Sessions.IsEmpty=false) and (Sessions.State=dsBrowse) then
+  begin
+  //  Isobara.Active:=false;
+  //  Isobara.SQLs.SelectSQL.Clear;
+   // Isobara.SQLs.SelectSQL.Add('SELECT * FROM ISOBARA WHERE '+
+    //                             '(IDENTIFIKATOR=?MAS_IDENTIFIKATOR) and '+
+         //                        '(SESSION_ID='+SessionsID_SESSIONS.AsString+')');
+    Isobara.Active:=true;
+  end;
+
+  Form_Main.Label_RecordsCountSessions.Caption:='Количество записей: '+IntToStr(Sessions.RecordCount);
+end;
+
+procedure TDBForm.Targets_DSDataChange(Sender: TObject; Field: TField);
+begin
+  Form_Main.Label_RecordsCountTargets.Caption:='Количество записей: '+IntToStr(Targets.RecordCount);
+  if Targets.RecordCount>0 then Form_DBTargets.Btn_Duplicate.Enabled:=true
+    else Form_DBTargets.Btn_Duplicate.Enabled:=false;
+end;
+
+procedure TDBForm.TargsInd_DSDataChange(Sender: TObject; Field: TField);
+begin
+  try
+    Form_Main.Label_RecordsCountTargsInd.Caption:='Количество самолетов: '+IntToStr(TargsInd.RecordCount);
+    if (Form_ValueWeightGraph<>nil) and (Form_ValueWeightGraph.Showing) then
+    begin
+      Form_ValueWeightGraph.Close;
+      Sleep(100);
+      if (Form_DBTargets<>nil) and (Form_DBTargets.Showing) then
+      begin
+        Form_DBTargets.BitBtn_ValueWeightGraph.OnClick(Sender);
+        Form_DBTargets.DBGrid_TargsInd.SetFocus;
+      end;
+    end;
+  except on E: Exception do
+    begin
+
+    end;
+  end;
+end;
+
+
+
+procedure TDBForm.TargsInSes_DSDataChange(Sender: TObject; Field: TField);
+begin
+  try
+    if Isobara.State=dsOpening then
+    begin
+      Isobara.Last;
+      Isobara.First;
+    end;
+  except on E: Exception do
+    begin
+
+    end;
+  end;
+end;
+
+end.

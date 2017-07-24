@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011.10.20 15:22:10.339.pas,E:\Documents and settings\UsovAV\Мои документы\Borland Studio Projects\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\MonitoringRVSM_main_unit.pas</Transaction>
+    <Transaction>2011.10.20 15:22:10.355.dfm,E:\Documents and settings\UsovAV\Мои документы\Borland Studio Projects\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\MonitoringRVSM_main_unit.dfm</Transaction>
+    <Transaction>2011.10.20 15:22:35.699.bdsproj,E:\Documents and settings\UsovAV\Мои документы\Borland Studio Projects\Project1.bdsproj=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\MonitoringRVSM.bdsproj</Transaction>
+    <Transaction>2011.10.20 15:51:52.560.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DB_unit.pas</Transaction>
+    <Transaction>2011.10.20 15:51:52.560.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DB_unit.dfm</Transaction>
+    <Transaction>2011.10.20 16:56:21.962.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\StdCtrls.pas=</Transaction>
+    <Transaction>2011.10.20 17:13:35.173.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DataBase_unit.pas</Transaction>
+    <Transaction>2011.10.20 17:13:35.173.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DataBase_unit.dfm</Transaction>
+    <Transaction>2011.10.21 13:54:37.138.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DB_Append_and_Edit_unit.pas</Transaction>
+    <Transaction>2011.10.21 13:54:37.138.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DB_Append_and_Edit_unit.dfm</Transaction>
+    <Transaction>2011.10.21 17:39:30.554.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBConnect_unit.pas</Transaction>
+    <Transaction>2011.10.21 17:39:30.554.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBConnect_unit.dfm</Transaction>
+    <Transaction>2011.10.24 09:04:42.498.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\LoadFromFile_unit.pas</Transaction>
+    <Transaction>2011.10.24 09:04:42.498.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\LoadFromFile_unit.dfm</Transaction>
+    <Transaction>2011.10.24 12:30:07.071.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DataBase_unit.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBTargets_unit.pas</Transaction>
+    <Transaction>2011.10.24 12:30:07.071.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DataBase_unit.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBTargets_unit.dfm</Transaction>
+    <Transaction>2011.10.24 12:31:49.369.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DB_Append_and_Edit_unit.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBTargets_Append_and_Edit_unit.pas</Transaction>
+    <Transaction>2011.10.24 12:31:49.369.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DB_Append_and_Edit_unit.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBTargets_Append_and_Edit_unit.dfm</Transaction>
+    <Transaction>2011.10.24 13:33:05.811.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DataBase_unit.pas</Transaction>
+    <Transaction>2011.10.24 13:33:05.811.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DataBase_unit.dfm</Transaction>
+    <Transaction>2011.10.24 15:18:56.839.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBSessions_unit.pas</Transaction>
+    <Transaction>2011.10.24 15:18:56.839.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\DBSessions_unit.dfm</Transaction>
+    <Transaction>2011.10.27 12:00:03.665.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ValueWeight_unit.pas</Transaction>
+    <Transaction>2011.10.27 12:00:03.665.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ValueWeight_unit.dfm</Transaction>
+    <Transaction>2011.10.27 12:00:31.009.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ValueWeight_unit.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ValueWeightGraph_unit.pas</Transaction>
+    <Transaction>2011.10.27 12:00:31.009.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ValueWeight_unit.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ValueWeightGraph_unit.dfm</Transaction>
+    <Transaction>2011.11.01 15:28:27.452.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ParamLoadFromFile_unit.pas</Transaction>
+    <Transaction>2011.11.01 15:28:27.468.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ParamLoadFromFile_unit.dfm</Transaction>
+    <Transaction>2011.11.01 19:04:46.632.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\License_unit.pas</Transaction>
+    <Transaction>2011.11.01 19:04:46.632.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\License_unit.dfm</Transaction>
+    <Transaction>2011.11.08 10:13:48.767.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.pas=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ParamDataBase_unit.pas</Transaction>
+    <Transaction>2011.11.08 10:13:48.767.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\Unit1.dfm=E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\ParamDataBase_unit.dfm</Transaction>
+    <Transaction>2012.07.09 10:43:30.171.pas,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\License_unit.pas=</Transaction>
+    <Transaction>2012.07.09 10:43:30.171.dfm,E:\Allibrax\Программирование\В процессе\Мониторинг RVSM\License_unit.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>

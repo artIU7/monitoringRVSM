@@ -1,0 +1,178 @@
+unit ValueWeightGraph_unit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, TeeProcs, TeEngine, Chart, Series, StdCtrls, Mask,
+  DBCtrlsEh, Buttons, GridsEh, DBGridEh, DB,
+  DBCtrls, Math, ShlObj, Grids, DBGrids, ToolCtrlsEh,
+  DBGridEhToolCtrls, DynVarsEh, DBAxisGridsEh;
+
+type
+  TForm_ValueWeightGraph = class(TForm)
+    Panel_ValueWeightGraph: TPanel;
+    Panel_ValueWeightGraphParams: TPanel;
+    Panel_GraphBack: TPanel;
+    Shapel_ValueWeightGraph: TShape;
+    Chart_ValueWeightGraph: TChart;
+    Series_Graph: TLineSeries;
+    Series1: TLineSeries;
+    Series2: TLineSeries;
+    GroupBox1: TGroupBox;
+    Label3: TLabel;
+    DBEditEh3: TDBEditEh;
+    Label4: TLabel;
+    DBEditEh4: TDBEditEh;
+    GroupBox2: TGroupBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    DBEditEh5: TDBEditEh;
+    DBEditEh6: TDBEditEh;
+    GroupBox3: TGroupBox;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBEditEh7: TDBEditEh;
+    DBEditEh8: TDBEditEh;
+    Label1: TLabel;
+    DBEditEh1: TDBEditEh;
+    DBEditEh2: TDBEditEh;
+    Label2: TLabel;
+    Label9: TLabel;
+    DBEditEh9: TDBEditEh;
+    GroupBox4: TGroupBox;
+    DBEditEh10: TDBEditEh;
+    GroupBox5: TGroupBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Label10: TLabel;
+    Label12: TLabel;
+    Label11: TLabel;
+    Label13: TLabel;
+    DBEditEh11: TDBEditEh;
+    DBEditEh12: TDBEditEh;
+    DBEditEh13: TDBEditEh;
+    Series3: TLineSeries;
+    Series4: TLineSeries;
+    Series5: TLineSeries;
+    Series6: TLineSeries;
+    Series7: TLineSeries;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Button1: TButton;
+    Series8: TLineSeries;
+    Series9: TLineSeries;
+    Series10: TLineSeries;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    procedure Button1Click(Sender: TObject);
+    procedure DBEditEh10KeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+
+
+
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  protected
+    procedure CreateParams(var Params: TCreateParams); override;
+  end;
+
+var
+  Form_ValueWeightGraph: TForm_ValueWeightGraph;
+
+implementation
+
+uses MonitoringRVSM_main_unit,
+     DB_unit, DBTargets_unit, DBSessions_unit,
+     DataBase_unit;
+
+{$R *.dfm}
+
+procedure TForm_ValueWeightGraph.Button1Click(Sender: TObject);
+begin
+                   Form_ValueWeightGraph.Series_Graph.Clear;
+     Form_ValueWeightGraph.Series1.Clear;
+     Form_ValueWeightGraph.Series2.Clear;
+      Form_ValueWeightGraph.Series3.Clear;
+       Form_ValueWeightGraph.Series4.Clear;
+        Form_ValueWeightGraph.Series5.Clear;
+         Form_ValueWeightGraph.Series6.Clear;
+          Form_ValueWeightGraph.Series7.Clear;
+              //    Form_ValueWeightGraph.Hide;
+
+    //    DBForm.TargsInd.Active:=false;
+   // DBForm.TargsInd.SQLs.SelectSQL.Clear;
+// DBForm.TargsInd.SQLs.SelectSQL.Add('SELECT * FROM TARGSIND1 OREDER BY IDENTIFIKATOR ');
+
+   //    DBForm.TargsInd.Active:=true;
+    //   DBForm.Statistics.Active:=true;
+
+end;
+
+procedure TForm_ValueWeightGraph.CreateParams;
+begin
+  inherited;
+  Params.WndParent:=Form_DBTargets.Handle;
+end;
+//------------------------------------------------------------------------------
+procedure TForm_ValueWeightGraph.DBEditEh10KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+
+  if DBForm.TargsInd1.Locate('IDENTIFIKATOR', Form_DBTargets.Edit28.Text, [loCaseInsensitive, loPartialKey])=false then
+    DBForm.TargsInd1.First;
+     if DBForm.TargsInd2.Locate('IDENTIFIKATOR', Form_DBTargets.Edit28.Text, [loCaseInsensitive, loPartialKey])=false then
+    DBForm.TargsInd2.First;
+     if DBForm.TargsInd.Locate('IDENTIFIKATOR', Form_DBTargets.Edit28.Text, [loCaseInsensitive, loPartialKey])=false then
+    DBForm.TargsInd.First;
+
+end;
+
+procedure TForm_ValueWeightGraph.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Form_Main.Label_OpenCloseValueWeightGraph.Caption:='Ä';
+  Form_Main.BitBtn_ValueWeightGraph.Glyph:=nil;
+  Form_DBTargets.BitBtn_ValueWeightGraph.Glyph:=nil;
+  Application.ProcessMessages();
+  Form_Main.ImageList_Menu_20x20.GetBitmap(3, Form_Main.BitBtn_ValueWeightGraph.Glyph);
+  Form_Main.ImageList_Menu_20x20.GetBitmap(3, Form_DBTargets.BitBtn_ValueWeightGraph.Glyph);
+end;
+
+procedure TForm_ValueWeightGraph.FormShow(Sender: TObject);
+var
+  FormBorderWidth, FormBorderHeight: integer;
+begin
+  FormBorderWidth:=Round((Form_Main.Width-Form_Main.ClientWidth)/2);
+  FormBorderHeight:=Form_Main.Height-Form_Main.ClientHeight-FormBorderWidth;
+
+  Form_ValueWeightGraph.Left:=Form_Main.Left+FormBorderWidth+Form_Main.Width-
+                              Form_ValueWeightGraph.Width-40-3;
+  Form_ValueWeightGraph.Top:=Form_Main.Top+FormBorderHeight+Form_Main.Height-
+                             Form_ValueWeightGraph.Height-69;
+
+  Form_Main.Label_OpenCloseValueWeightGraph.Caption:='Ç';
+  Form_Main.BitBtn_ValueWeightGraph.Glyph:=nil;
+  Form_DBTargets.BitBtn_ValueWeightGraph.Glyph:=nil;
+  Application.ProcessMessages();
+  Form_Main.ImageList_Menu_20x20.GetBitmap(4, Form_Main.BitBtn_ValueWeightGraph.Glyph);
+  Form_Main.ImageList_Menu_20x20.GetBitmap(4, Form_DBTargets.BitBtn_ValueWeightGraph.Glyph);
+end;
+
+
+
+
+
+
+
+
+
+end.

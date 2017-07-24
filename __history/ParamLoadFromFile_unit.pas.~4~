@@ -1,0 +1,263 @@
+unit ParamLoadFromFile_unit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, ShlObj;
+
+type
+  TForm_ParamLoadFromFile = class(TForm)
+    Panel_ParamLoadFromFile: TPanel;
+    Panel_ParamLoadFromFileButtons: TPanel;
+    Shape_Split1: TShape;
+    Btn_Cancel: TButton;
+    Shape_Split3: TShape;
+    RBtn_TXTorCSV: TRadioButton;
+    RBtn_Stream: TRadioButton;
+    OpenDlg_Stream: TOpenDialog;
+    OpenDlg_TXTorCSV: TOpenDialog;
+    Btn_OpenFile: TButton;
+    Shape_Split2: TShape;
+    procedure Btn_OpenFileClick(Sender: TObject);
+    procedure Btn_CancelClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  protected
+    procedure CreateParams(var Params: TCreateParams); override;
+  end;
+
+var
+  Form_ParamLoadFromFile: TForm_ParamLoadFromFile;
+
+implementation
+
+uses MonitoringRVSM_main_unit, LoadFromFile_unit,
+     DB_unit, DataBase_unit, ParamDataBase_unit,
+     DBTargets_unit, DBSessions_unit, ValueWeightGraph_unit;
+
+{$R *.dfm}
+
+procedure TForm_ParamLoadFromFile.CreateParams;
+begin
+  inherited;
+  Params.WndParent:=Form_DataBase.Handle;
+end;
+//---- Настройка диалога -------------------------------------------------------
+function GetSpecialPath(CSIDL: word): string;
+var
+  s: string;
+begin
+  SetLength(s, MAX_PATH);
+  if not SHGetSpecialFolderPath(0, PChar(s), CSIDL, true) then s:='';
+  result:=PChar(s);
+end;
+//------------------------------------------------------------------------------
+procedure TForm_ParamLoadFromFile.Btn_CancelClick(Sender: TObject);
+begin
+  Form_ParamLoadFromFile.Close;
+end;
+
+procedure TForm_ParamLoadFromFile.Btn_OpenFileClick(Sender: TObject);
+
+var
+i: integer;
+nameString: array [0..24] of string [20] ;
+i1,j,l: integer;
+k_s: integer;
+Ds,KD: integer;
+DT: TDateTime;
+wYear,wMonth,wDay: word;
+M:double;
+hg: integer;
+isDelete: boolean;
+TR,TK,TR1,TK1:integer;
+p_s,K_P: integer;
+  ps: Integer;
+//sr: TSearchRec;
+begin
+j:=0;
+
+  if RBtn_Stream.Checked=true then
+  begin
+
+     if OpenDlg_Stream.Execute then
+    begin
+    for i := 0 to OpenDlg_Stream.Files.Count-1 do
+   begin
+    if Form_Main.DBNumberEditEh1.Text=IntToStr(6) then
+        begin
+          Form_Main.Button1Click(Sender);
+                   isDelete:=DBForm.MonitoringDB.Execute('DELETE FROM TARGETS');
+    if isDelete=false then MessageDlg('Ошибка в процессе удаления записей.', mtError, [mbOK], 0);
+    Form_DataBase.Btn_DBRefresh.OnClick(Sender);
+                 Form_Main.DBNumberEditEh1.Text:=IntToStr(23);
+                 Form_Main.Edit_SetHour.Text:=IntToStr(0);
+                 j:=1;
+        end;
+
+   // nameString[i]:=OpenDlg_Stream.Files.Strings[i];
+   // OpenDlg_Stream.InitialDir:='C:\Documents and Settings\Администратор\Рабочий стол\март';
+    //:=i+1;
+  //  OpenDlg_Stream.FileName:=OpenDlg_Stream.Files[i];
+    OpenDlg_Stream.InitialDir:=GetSpecialPath(CSIDL_DESKTOPDIRECTORY);
+    //end;
+
+  //  i:=FindFirst(OpenDlg_Stream.InitialDir+ '*.stream',faAnyFile,sr);
+
+      Form_LoadFromFile.MemTable_LoadDatas.Last;
+      Form_LoadFromFile.MemTable_LoadDatas.First;
+      if Form_LoadFromFile.MemTable_LoadDatas.RecordCount>0 then
+        Form_LoadFromFile.MemTable_LoadDatas.EmptyTable;
+      Form_LoadFromFile.Label_LoadStateInfo.Caption:='';
+      Form_LoadFromFile.PrBar_LoadState.Position:=0;
+
+      Form_ParamLoadFromFile.Close;
+      Form_LoadFromFile.Show;
+      Form_LoadFromFile.LoadDatasFromFile(1, OpenDlg_Stream.Files[i]);
+      Form_LoadFromFile.Btn_SaveDatasToDBClick(Sender);
+          //// M:=(i)mod(23);
+          if (i=OpenDlg_Stream.Files.Count-1)OR(i=23) OR (i=47) OR (i=71)  OR (i=95) OR (i=119) OR (i=143) OR (i=167) OR (i=191) OR (i=215) then
+            begin
+
+              //----------------------------------------------------------------
+             //  if i=1 then
+               // begin
+                 // j:=0;
+                 // end
+                  //  else
+                    //    begin
+                      //    j:=1;
+                        //  end;
+
+              KD:= StrToInt(Form_Main.DBNumberEditEh2.Text);
+DT:=Form_Main.DTPicker_SetDate.DateTime;
+  DecodeDate(DT, wYear, wMonth, wDay);
+      wDay:=wDay+j;
+      hg:=wDay;
+   Form_Main.DTPicker_SetDate.DateTime:=EncodeDate(wYear, wMonth, wDay);
+
+
+     // if (hg<>29) OR (hg<>30) then
+           //                 begin
+k_s:= StrToInt(Form_Main.Edit_SetHour.Text);
+Ds:=StrToInt(Form_Main.DBNumberEditEh1.Text);
+l:=0;
+
+for i1 := 0 to Ds do
+begin
+      l:=l+1;
+        Form_Main.Edit_SetHour.Text:=IntToStr(k_s+i1);
+        K_P:=StrToInt(Form_Main.DBNumberEditEh3.Text);
+             TR1:=8850;
+  TK1:=10050;
+        for p_s := 0 to K_P do
+          begin
+          if p_s=0 then
+            begin
+        //TR:=StrToInt(Form_Main.Edit1.Text);
+        DBForm.SessionsEHELON.AsInteger:=TR1;
+       Form_Main.PrepareDatasAndAnalysisExecute(nil);
+       Form_DBSessions.Btn_DeleteAllClick1(Sender);
+        Application.ProcessMessages();
+            end
+                else
+                    begin
+                      TR:=StrToInt(Form_Main.Edit1.Text);
+                      TK:=StrToInt(Form_Main.Edit2.Text);
+
+                        Form_Main.Edit1.Text:=IntToStr(TR+1200);
+                        Form_Main.Edit2.Text:=IntToStr(TK+1200);
+                         DBForm.Sessions.Edit;
+                        DBForm.SessionsEHELON.AsInteger:=TR+1200;
+                        DBForm.Sessions.Post;
+       Form_Main.PrepareDatasAndAnalysisExecute(nil);
+       Form_DBSessions.Btn_DeleteAllClick1(Sender);
+        Application.ProcessMessages();
+                    end;
+          end;
+          Form_Main.Edit1.Text:=IntToStr(TR1);
+          Form_Main.Edit2.Text:=IntToStr(TK1);
+      end;
+       j:=1;
+     Form_Main.Edit_SetHour.Text:=IntToStr(0);
+                            //end;
+      DT:=Form_Main.DTPicker_SetDate.DateTime;
+      DecodeDate(DT, wYear, wMonth, wDay);
+      //wDay:=wDay+j;
+      if wDaY=30 then
+          begin
+          wMonth:=wMonth+1;
+          wDay:=1;
+          Form_Main.DTPicker_SetDate.DateTime:=EncodeDate(wYear, wMonth, wDay);
+          j:=0;
+          end;
+
+
+    Form_DBTargets.Panel_TargetsTable.Visible:=false;
+
+    isDelete:=DBForm.MonitoringDB.Execute('DELETE FROM TARGETS');
+    if isDelete=false then MessageDlg('Ошибка в процессе удаления записей.', mtError, [mbOK], 0);
+    Form_DataBase.Btn_DBRefresh.OnClick(Sender);
+
+    Form_DBTargets.Panel_TargetsTable.Visible:=true;
+
+  end;
+  Application.ProcessMessages();
+              //----------------------------------------------------------------
+            end;
+
+    end;
+    Form_DBTargets.Button4Click(Sender);
+    Form_DBTargets.Button3Click(Sender);
+ Form_DBTargets.Butt1(Sender);
+  end;
+  if RBtn_TXTorCSV.Checked=true then
+  begin
+    OpenDlg_TXTorCSV.FileName:='';
+    OpenDlg_TXTorCSV.InitialDir:=GetSpecialPath(CSIDL_DESKTOPDIRECTORY);
+    if OpenDlg_TXTorCSV.Execute then
+    begin
+      Form_LoadFromFile.MemTable_LoadDatas.Last;
+      Form_LoadFromFile.MemTable_LoadDatas.First;
+      if Form_LoadFromFile.MemTable_LoadDatas.RecordCount>0 then
+        Form_LoadFromFile.MemTable_LoadDatas.EmptyTable;
+      Form_LoadFromFile.Label_LoadStateInfo.Caption:='';
+      Form_LoadFromFile.PrBar_LoadState.Position:=0;
+
+      Form_ParamLoadFromFile.Close;
+      Form_LoadFromFile.Show;
+      Form_LoadFromFile.LoadDatasFromFile(2, OpenDlg_TXTorCSV.FileName);
+    end;
+  end;
+  //end;
+end;
+
+procedure TForm_ParamLoadFromFile.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Form_Main.Enabled:=true;
+  Form_DataBase.Enabled:=true;
+  Form_ParamDataBase.Enabled:=true;
+  Form_DBTargets.Enabled:=true;
+  Form_DBSessions.Enabled:=true;
+  Form_ValueWeightGraph.Enabled:=true;
+end;
+
+procedure TForm_ParamLoadFromFile.FormShow(Sender: TObject);
+begin
+  Form_ParamLoadFromFile.Left:=Form_Main.Left+Round(Form_Main.Width/2-Form_ParamLoadFromFile.Width/2);
+  Form_ParamLoadFromFile.Top:=Form_Main.Top+Round(Form_Main.Height/2-Form_ParamLoadFromFile.Height/2);
+  Form_Main.Enabled:=false;
+  Form_DataBase.Enabled:=false;
+  Form_ParamDataBase.Enabled:=false;
+  Form_DBTargets.Enabled:=false;
+  Form_DBSessions.Enabled:=false;
+  Form_ValueWeightGraph.Enabled:=false;
+end;
+
+end.

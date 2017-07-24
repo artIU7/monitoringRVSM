@@ -1,0 +1,765 @@
+object Form_ValueWeightGraph: TForm_ValueWeightGraph
+  Left = 0
+  Top = 0
+  ActiveControl = Chart_ValueWeightGraph
+  Align = alCustom
+  AutoSize = True
+  Caption = #1057#1077#1088#1080#1103' '#1072#1085#1072#1083#1080#1079#1072' '#1087#1086#1075#1088#1077#1096#1085#1086#1089#1090#1077#1081' '#1073#1086#1088#1090#1072
+  ClientHeight = 874
+  ClientWidth = 1140
+  Color = clBtnShadow
+  UseDockManager = True
+  DockSite = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesigned
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel_ValueWeightGraph: TPanel
+    AlignWithMargins = True
+    Left = 1
+    Top = 1
+    Width = 1138
+    Height = 872
+    Margins.Left = 1
+    Margins.Top = 1
+    Margins.Right = 1
+    Margins.Bottom = 1
+    Align = alClient
+    BevelOuter = bvNone
+    ParentBackground = False
+    TabOrder = 0
+    object Panel_ValueWeightGraphParams: TPanel
+      AlignWithMargins = True
+      Left = 2
+      Top = 2
+      Width = 1134
+      Height = 231
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Align = alTop
+      BevelKind = bkFlat
+      BevelOuter = bvNone
+      Color = clGradientInactiveCaption
+      TabOrder = 0
+      object GroupBox1: TGroupBox
+        Left = 8
+        Top = 0
+        Width = 193
+        Height = 107
+        Caption = #1041#1083#1086#1082' 1'
+        TabOrder = 0
+        object Label3: TLabel
+          Left = 3
+          Top = 18
+          Width = 90
+          Height = 13
+          Caption = #1060#1080#1083#1100#1090#1088' '#1087#1086' '#1089#1077#1072#1085#1089#1091
+        end
+        object Label4: TLabel
+          Left = 3
+          Top = 45
+          Width = 84
+          Height = 13
+          Caption = #1060#1080#1083#1100#1090#1088' '#1087#1086' '#1089#1080#1075#1084#1077
+        end
+        object Label1: TLabel
+          Left = 3
+          Top = 72
+          Width = 74
+          Height = 13
+          Caption = #1056#1072#1079#1073#1088#1086#1089' '#1074#1099#1089#1086#1090
+        end
+        object DBEditEh3: TDBEditEh
+          Left = 105
+          Top = 15
+          Width = 77
+          Height = 21
+          DataField = 'KOL_SEANS'
+          DataSource = DBForm.TargsInd1_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          Visible = True
+        end
+        object DBEditEh4: TDBEditEh
+          Left = 105
+          Top = 42
+          Width = 77
+          Height = 21
+          DataField = 'KOL_SIGMA'
+          DataSource = DBForm.TargsInd1_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          Visible = True
+        end
+        object DBEditEh1: TDBEditEh
+          Left = 105
+          Top = 69
+          Width = 77
+          Height = 21
+          DataField = 'RAZN_VISOT'
+          DataSource = DBForm.TargsInd1_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          Visible = True
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 207
+        Top = 0
+        Width = 193
+        Height = 107
+        Caption = #1041#1083#1086#1082' 2'
+        TabOrder = 1
+        object Label5: TLabel
+          Left = 3
+          Top = 18
+          Width = 90
+          Height = 13
+          Caption = #1060#1080#1083#1100#1090#1088' '#1087#1086' '#1089#1077#1072#1085#1089#1091
+        end
+        object Label6: TLabel
+          Left = 3
+          Top = 45
+          Width = 84
+          Height = 13
+          Caption = #1060#1080#1083#1100#1090#1088' '#1087#1086' '#1089#1080#1075#1084#1077
+        end
+        object Label2: TLabel
+          Left = 3
+          Top = 72
+          Width = 74
+          Height = 13
+          Caption = #1056#1072#1079#1073#1088#1086#1089' '#1074#1099#1089#1086#1090
+        end
+        object DBEditEh5: TDBEditEh
+          Left = 105
+          Top = 15
+          Width = 77
+          Height = 21
+          DataField = 'KOL_SEANS'
+          DataSource = DBForm.TargsInd2_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          Visible = True
+        end
+        object DBEditEh6: TDBEditEh
+          Left = 105
+          Top = 42
+          Width = 77
+          Height = 21
+          DataField = 'KOL_SIGMA'
+          DataSource = DBForm.TargsInd2_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          Visible = True
+        end
+        object DBEditEh2: TDBEditEh
+          Left = 105
+          Top = 69
+          Width = 77
+          Height = 21
+          DataField = 'RAZN_VISOT'
+          DataSource = DBForm.TargsInd2_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          Visible = True
+        end
+      end
+      object GroupBox3: TGroupBox
+        Left = 416
+        Top = 0
+        Width = 193
+        Height = 107
+        Caption = #1041#1083#1086#1082' 3'
+        TabOrder = 2
+        object Label7: TLabel
+          Left = 1
+          Top = 15
+          Width = 90
+          Height = 13
+          Caption = #1060#1080#1083#1100#1090#1088' '#1087#1086' '#1089#1077#1072#1085#1089#1091
+        end
+        object Label8: TLabel
+          Left = 3
+          Top = 45
+          Width = 84
+          Height = 13
+          Caption = #1060#1080#1083#1100#1090#1088' '#1087#1086' '#1089#1080#1075#1084#1077
+        end
+        object Label9: TLabel
+          Left = 3
+          Top = 69
+          Width = 74
+          Height = 13
+          Caption = #1056#1072#1079#1073#1088#1086#1089' '#1074#1099#1089#1086#1090
+        end
+        object DBEditEh7: TDBEditEh
+          Left = 105
+          Top = 15
+          Width = 77
+          Height = 21
+          DataField = 'KOL_SEANS'
+          DataSource = DBForm.TargsInd_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          Visible = True
+        end
+        object DBEditEh8: TDBEditEh
+          Left = 105
+          Top = 42
+          Width = 77
+          Height = 21
+          DataField = 'KOL_SIGMA'
+          DataSource = DBForm.TargsInd_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          Visible = True
+        end
+        object DBEditEh9: TDBEditEh
+          Left = 105
+          Top = 66
+          Width = 77
+          Height = 21
+          DataField = 'RAZN_VISOT'
+          DataSource = DBForm.TargsInd_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          Visible = True
+        end
+      end
+      object GroupBox4: TGroupBox
+        Left = 632
+        Top = 2
+        Width = 137
+        Height = 76
+        Caption = #1053#1086#1084#1077#1088' '#1073#1086#1088#1090#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        object DBEditEh10: TDBEditEh
+          Left = 3
+          Top = 32
+          Width = 126
+          Height = 31
+          DataField = 'IDENTIFIKATOR'
+          DataSource = DBForm.TargsInd_DS
+          DynProps = <>
+          EditButtons = <>
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clPurple
+          Font.Height = -19
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          Visible = True
+        end
+      end
+      object GroupBox5: TGroupBox
+        Left = 775
+        Top = 0
+        Width = 346
+        Height = 107
+        Caption = #1057#1077#1088#1080#1103' '#1088#1077#1079#1091#1083#1100#1090#1072#1090#1086#1074
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        object Label10: TLabel
+          Left = 19
+          Top = 19
+          Width = 61
+          Height = 24
+          Caption = #1041#1083#1086#1082' 1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label12: TLabel
+          Left = 19
+          Top = 79
+          Width = 61
+          Height = 24
+          Caption = #1041#1083#1086#1082' 3'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label11: TLabel
+          Left = 19
+          Top = 49
+          Width = 61
+          Height = 24
+          Caption = #1041#1083#1086#1082' 2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label13: TLabel
+          Left = 200
+          Top = 12
+          Width = 119
+          Height = 16
+          Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1089#1077#1072#1085#1089#1086#1074
+        end
+        object BitBtn1: TBitBtn
+          Left = 107
+          Top = 18
+          Width = 75
+          Height = 24
+          Caption = '-----------'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -40
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+        end
+        object BitBtn2: TBitBtn
+          Left = 107
+          Top = 48
+          Width = 75
+          Height = 25
+          Caption = '-----------'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -40
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+        end
+        object BitBtn3: TBitBtn
+          Left = 107
+          Top = 79
+          Width = 75
+          Height = 25
+          Caption = '-----------'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -40
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+        end
+        object DBEditEh11: TDBEditEh
+          Left = 217
+          Top = 31
+          Width = 77
+          Height = 24
+          DataField = 'KOL_S'
+          DataSource = DBForm.TargsInd1_DS
+          DynProps = <>
+          EditButtons = <>
+          TabOrder = 3
+          Visible = True
+        end
+        object DBEditEh12: TDBEditEh
+          Left = 217
+          Top = 58
+          Width = 77
+          Height = 24
+          DataField = 'KOL_S'
+          DataSource = DBForm.TargsInd2_DS
+          DynProps = <>
+          EditButtons = <>
+          TabOrder = 4
+          Visible = True
+        end
+        object DBEditEh13: TDBEditEh
+          Left = 217
+          Top = 83
+          Width = 77
+          Height = 24
+          DataField = 'KOL_S'
+          DataSource = DBForm.TargsInd_DS
+          DynProps = <>
+          EditButtons = <>
+          TabOrder = 5
+          Visible = True
+        end
+      end
+      object GroupBox6: TGroupBox
+        Left = 8
+        Top = 122
+        Width = 218
+        Height = 105
+        Caption = #1042#1088#1077#1084#1077#1085#1085#1099#1077' '#1075#1088#1072#1085#1080#1094#1099
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        object Label14: TLabel
+          Left = 3
+          Top = 34
+          Width = 197
+          Height = 16
+          Caption = '26.02.2012 - 10.03.2012 21:00:00'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label15: TLabel
+          Left = 3
+          Top = 56
+          Width = 197
+          Height = 16
+          Caption = '11.03.2012 - 24.03.2012 23:00:00'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label16: TLabel
+          Left = 3
+          Top = 78
+          Width = 197
+          Height = 16
+          Caption = '01.07.2012 - 08.07.2012 23:00:00'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+      end
+    end
+    object Panel_GraphBack: TPanel
+      Left = 0
+      Top = 235
+      Width = 1138
+      Height = 637
+      Align = alClient
+      BevelOuter = bvNone
+      Color = clGradientInactiveCaption
+      TabOrder = 1
+      object Shapel_ValueWeightGraph: TShape
+        AlignWithMargins = True
+        Left = 2
+        Top = 2
+        Width = 1134
+        Height = 633
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Align = alClient
+        Brush.Color = clBtnFace
+        Pen.Style = psDot
+        ExplicitTop = 6
+        ExplicitWidth = 906
+        ExplicitHeight = 803
+      end
+      object Chart_ValueWeightGraph: TChart
+        AlignWithMargins = True
+        Left = 3
+        Top = 3
+        Width = 1132
+        Height = 631
+        AnimatedZoomSteps = 9
+        BackWall.Brush.Color = clWhite
+        BackWall.Brush.Style = bsClear
+        Foot.Alignment = taRightJustify
+        Foot.Color = clGray
+        Foot.Font.Charset = DEFAULT_CHARSET
+        Foot.Font.Color = clOlive
+        Foot.Font.Height = -11
+        Foot.Font.Name = 'Arial'
+        Foot.Font.Style = [fsItalic]
+        Gradient.Direction = gdFromCenter
+        Gradient.EndColor = 16777088
+        Gradient.StartColor = 8421631
+        Title.Font.Charset = RUSSIAN_CHARSET
+        Title.Font.Color = clBlack
+        Title.Font.Height = -11
+        Title.Font.Name = 'Tahoma'
+        Title.Font.Style = [fsBold]
+        Title.Text.Strings = (
+          #1043#1088#1072#1092#1080#1082' '#1080#1079#1084#1077#1085#1077#1085#1080#1103' '#1091#1090#1086#1095#1085#1077#1085#1085#1086#1081' '#1086#1094#1077#1085#1082#1080' '#1087#1086' '#1089#1077#1072#1085#1089#1072#1084)
+        BottomAxis.Automatic = False
+        BottomAxis.AutomaticMaximum = False
+        BottomAxis.AutomaticMinimum = False
+        BottomAxis.Title.Caption = #1057#1077#1072#1085#1089#1099
+        BottomAxis.Title.Font.Charset = RUSSIAN_CHARSET
+        BottomAxis.Title.Font.Color = clTeal
+        BottomAxis.Title.Font.Height = -11
+        BottomAxis.Title.Font.Name = 'Tahoma'
+        BottomAxis.Title.Font.Style = []
+        BottomAxis.TitleSize = 5
+        DepthAxis.Automatic = False
+        DepthAxis.AutomaticMaximum = False
+        DepthAxis.AutomaticMinimum = False
+        DepthAxis.Maximum = 0.439999999999999900
+        DepthAxis.Minimum = -0.560000000000000100
+        LeftAxis.GridCentered = True
+        LeftAxis.Title.Caption = #1059#1090#1086#1095#1085#1077#1085#1085#1072#1103' '#1086#1094#1077#1085#1082#1072
+        LeftAxis.Title.Font.Charset = RUSSIAN_CHARSET
+        LeftAxis.Title.Font.Color = clTeal
+        LeftAxis.Title.Font.Height = -11
+        LeftAxis.Title.Font.Name = 'Tahoma'
+        LeftAxis.Title.Font.Style = []
+        LeftAxis.TitleSize = 5
+        Legend.Alignment = laTop
+        Legend.ColorWidth = 15
+        Legend.LegendStyle = lsSeries
+        Legend.ShadowSize = 5
+        Legend.TextStyle = ltsRightValue
+        RightAxis.Automatic = False
+        RightAxis.AutomaticMaximum = False
+        RightAxis.AutomaticMinimum = False
+        View3D = False
+        Align = alClient
+        BevelOuter = bvNone
+        BevelWidth = 0
+        Color = 8454143
+        DockSite = True
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        AutoSize = True
+        object Series_Graph: TLineSeries
+          Marks.ArrowLength = 5
+          Marks.Style = smsValue
+          Marks.Visible = False
+          SeriesColor = clRed
+          Title = 'Seans_1'
+          LinePen.Width = 5
+          Pointer.InflateMargins = True
+          Pointer.Style = psStar
+          Pointer.Visible = True
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+        object Series1: TLineSeries
+          Marks.ArrowLength = 5
+          Marks.Visible = False
+          SeriesColor = 16711808
+          LinePen.Width = 5
+          Pointer.InflateMargins = True
+          Pointer.Style = psDiamond
+          Pointer.Visible = True
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+        object Series2: TLineSeries
+          Marks.ArrowLength = 5
+          Marks.Visible = False
+          SeriesColor = 16711808
+          LinePen.Width = 5
+          Pointer.InflateMargins = True
+          Pointer.Style = psCircle
+          Pointer.Visible = True
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+        object Series3: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          SeriesColor = -1
+          Title = 'CentrLine'
+          LinePen.Width = 3
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          Stairs = True
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+        object Series4: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          SeriesColor = clRed
+          LinePen.Width = 4
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+        object Series5: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          SeriesColor = clYellow
+          LinePen.Width = 4
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+        object Series6: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          SeriesColor = clGreen
+          LinePen.Color = 16744448
+          LinePen.Style = psDot
+          LinePen.Width = 5
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+        object Series7: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = True
+          SeriesColor = clBlue
+          LinePen.Style = psDot
+          LinePen.Width = 5
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1.000000000000000000
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1.000000000000000000
+          YValues.Order = loNone
+        end
+      end
+    end
+  end
+end
